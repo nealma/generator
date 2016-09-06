@@ -44,48 +44,53 @@ public class UpdateByPrimaryKeyWithoutBLOBsElementGenerator extends
     public void addElements(XmlElement parentElement) {
         XmlElement answer = new XmlElement("update"); //$NON-NLS-1$
 
-        answer.addAttribute(new Attribute(
-                "id", introspectedTable.getUpdateByPrimaryKeyStatementId())); //$NON-NLS-1$
+        answer
+                .addAttribute(new Attribute(
+                        "id", introspectedTable.getUpdateByPrimaryKeyStatementId())); //$NON-NLS-1$
+
+        String parameterType;
+
+        if (introspectedTable.getRules().generateRecordWithBLOBsClass()) {
+            parameterType = introspectedTable.getRecordWithBLOBsType();
+        } else {
+            parameterType = introspectedTable.getBaseRecordType();
+        }
+
         answer.addAttribute(new Attribute("parameterType", //$NON-NLS-1$
-                introspectedTable.getBaseRecordType()));
+                parameterType));
 
         context.getCommentGenerator().addComment(answer);
 
         StringBuilder sb = new StringBuilder();
+
         sb.append("update "); //$NON-NLS-1$
         sb.append(introspectedTable.getFullyQualifiedTableNameAtRuntime());
         answer.addElement(new TextElement(sb.toString()));
 
-        // set up for first column
-        sb.setLength(0);
-        sb.append("set "); //$NON-NLS-1$
+        XmlElement dynamicElement = new XmlElement("set"); //$NON-NLS-1$
+        answer.addElement(dynamicElement);
 
-        Iterator<IntrospectedColumn> iter;
-        if (isSimple) {
-            iter = ListUtilities.removeGeneratedAlwaysColumns(introspectedTable.getNonPrimaryKeyColumns()).iterator();
-        } else {
-            iter = ListUtilities.removeGeneratedAlwaysColumns(introspectedTable.getBaseColumns()).iterator();
-        }
-        while (iter.hasNext()) {
-            IntrospectedColumn introspectedColumn = iter.next();
+        for (IntrospectedColumn introspectedColumn : ListUtilities.removeGeneratedAlwaysColumns(introspectedTable
+                .getNonPrimaryKeyColumns())) {
+            XmlElement isNotNullElement = new XmlElement("if"); //$NON-NLS-1$
+            sb.setLength(0);
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(" != null"); //$NON-NLS-1$
+            sb.append(" and "); //$NON-NLS-1$
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(" != ''"); //$NON-NLS-1$
+            isNotNullElement.addAttribute(new Attribute("test", sb.toString())); //$NON-NLS-1$
+            dynamicElement.addElement(isNotNullElement);
 
+            sb.setLength(0);
             sb.append(MyBatis3FormattingUtilities
                     .getEscapedColumnName(introspectedColumn));
             sb.append(" = "); //$NON-NLS-1$
             sb.append(MyBatis3FormattingUtilities
                     .getParameterClause(introspectedColumn));
+            sb.append(',');
 
-            if (iter.hasNext()) {
-                sb.append(',');
-            }
-
-            answer.addElement(new TextElement(sb.toString()));
-
-            // set up for the next column
-            if (iter.hasNext()) {
-                sb.setLength(0);
-                OutputUtilities.xmlIndent(sb, 1);
-            }
+            isNotNullElement.addElement(new TextElement(sb.toString()));
         }
 
         boolean and = false;
@@ -108,7 +113,7 @@ public class UpdateByPrimaryKeyWithoutBLOBsElementGenerator extends
         }
 
         if (context.getPlugins()
-                .sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(answer,
+                .sqlMapUpdateByPrimaryKeySelectiveElementGenerated(answer,
                         introspectedTable)) {
             parentElement.addElement(answer);
         }

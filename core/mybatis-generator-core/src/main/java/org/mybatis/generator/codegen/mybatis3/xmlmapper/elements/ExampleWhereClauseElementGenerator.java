@@ -21,6 +21,8 @@ import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.TextElement;
 import org.mybatis.generator.api.dom.xml.XmlElement;
+import org.mybatis.generator.codegen.mybatis3.ListUtilities;
+import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 
 /**
  * 
@@ -53,8 +55,9 @@ public class ExampleWhereClauseElementGenerator extends
         context.getCommentGenerator().addComment(answer);
 
         XmlElement whereElement = new XmlElement("where"); //$NON-NLS-1$
-        answer.addElement(whereElement);
 
+
+        /**
         XmlElement outerForEachElement = new XmlElement("foreach"); //$NON-NLS-1$
         if (isForUpdateByExample) {
             outerForEachElement.addAttribute(new Attribute(
@@ -88,6 +91,46 @@ public class ExampleWhereClauseElementGenerator extends
                         .addElement(getMiddleForEachElement(introspectedColumn));
             }
         }
+         */
+        StringBuilder sb = new StringBuilder();
+//        XmlElement insertTrimElement = new XmlElement("trim"); //$NON-NLS-1$
+//        insertTrimElement.addAttribute(new Attribute("prefix", "(")); //$NON-NLS-1$ //$NON-NLS-2$
+//        insertTrimElement.addAttribute(new Attribute("suffix", ")")); //$NON-NLS-1$ //$NON-NLS-2$
+//        insertTrimElement.addAttribute(new Attribute("suffixOverrides", ",")); //$NON-NLS-1$ //$NON-NLS-2$
+//        answer.addElement(insertTrimElement);
+
+        for (IntrospectedColumn introspectedColumn : ListUtilities.removeIdentityAndGeneratedAlwaysColumns(introspectedTable
+                .getAllColumns())) {
+
+            if (introspectedColumn.isSequenceColumn()
+                    || introspectedColumn.getFullyQualifiedJavaType().isPrimitive()) {
+                sb.setLength(0);
+                sb.append(MyBatis3FormattingUtilities
+                        .getEscapedColumnName(introspectedColumn));
+                sb.append(',');
+                continue;
+            }
+
+            XmlElement insertNotNullElement = new XmlElement("if"); //$NON-NLS-1$
+            sb.setLength(0);
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(" != null"); //$NON-NLS-1$
+            sb.append(" and "); //$NON-NLS-1$
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(" != ''"); //$NON-NLS-1$
+            insertNotNullElement.addAttribute(new Attribute(
+                    "test", sb.toString())); //$NON-NLS-1$
+
+            sb.setLength(0);
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append('=');
+            sb.append(MyBatis3FormattingUtilities
+                    .getParameterClause(introspectedColumn));
+            insertNotNullElement.addElement(new TextElement(sb.toString()));
+
+            whereElement.addElement(insertNotNullElement);
+        }
+        answer.addElement(whereElement);
 
         if (context.getPlugins()
                 .sqlMapExampleWhereClauseElementGenerated(answer,

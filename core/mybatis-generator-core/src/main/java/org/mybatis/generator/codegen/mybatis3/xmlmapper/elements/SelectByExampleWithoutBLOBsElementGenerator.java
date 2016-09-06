@@ -35,7 +35,7 @@ public class SelectByExampleWithoutBLOBsElementGenerator extends
 
     @Override
     public void addElements(XmlElement parentElement) {
-        String fqjt = introspectedTable.getExampleType();
+        String fqjt = introspectedTable.getBaseRecordType();
 
         XmlElement answer = new XmlElement("select"); //$NON-NLS-1$
 
@@ -48,19 +48,19 @@ public class SelectByExampleWithoutBLOBsElementGenerator extends
         context.getCommentGenerator().addComment(answer);
 
         answer.addElement(new TextElement("select")); //$NON-NLS-1$
-        XmlElement ifElement = new XmlElement("if"); //$NON-NLS-1$
-        ifElement.addAttribute(new Attribute("test", "distinct")); //$NON-NLS-1$ //$NON-NLS-2$
-        ifElement.addElement(new TextElement("distinct")); //$NON-NLS-1$
-        answer.addElement(ifElement);
+//        XmlElement ifElement = new XmlElement("if"); //$NON-NLS-1$
+//        ifElement.addAttribute(new Attribute("test", "distinct")); //$NON-NLS-1$ //$NON-NLS-2$
+//        ifElement.addElement(new TextElement("distinct")); //$NON-NLS-1$
+//        answer.addElement(ifElement);
 
         StringBuilder sb = new StringBuilder();
-        if (stringHasValue(introspectedTable
-                .getSelectByExampleQueryId())) {
-            sb.append('\'');
-            sb.append(introspectedTable.getSelectByExampleQueryId());
-            sb.append("' as QUERYID,"); //$NON-NLS-1$
-            answer.addElement(new TextElement(sb.toString()));
-        }
+//        if (stringHasValue(introspectedTable
+//                .getSelectByExampleQueryId())) {
+//            sb.append('\'');
+//            sb.append(introspectedTable.getSelectByExampleQueryId());
+//            sb.append("' as QUERYID,"); //$NON-NLS-1$
+//            answer.addElement(new TextElement(sb.toString()));
+//        }
         answer.addElement(getBaseColumnListElement());
 
         sb.setLength(0);
@@ -68,12 +68,12 @@ public class SelectByExampleWithoutBLOBsElementGenerator extends
         sb.append(introspectedTable
                 .getAliasedFullyQualifiedTableNameAtRuntime());
         answer.addElement(new TextElement(sb.toString()));
-        answer.addElement(getExampleIncludeElement());
+        answer.addElement(getIncludeElement());
 
-        ifElement = new XmlElement("if"); //$NON-NLS-1$
-        ifElement.addAttribute(new Attribute("test", "orderByClause != null")); //$NON-NLS-1$ //$NON-NLS-2$
-        ifElement.addElement(new TextElement("order by ${orderByClause}")); //$NON-NLS-1$
-        answer.addElement(ifElement);
+//        XmlElement ifElement = new XmlElement("if"); //$NON-NLS-1$
+//        ifElement.addAttribute(new Attribute("test", "orderByClause != null")); //$NON-NLS-1$ //$NON-NLS-2$
+//        ifElement.addElement(new TextElement("order by ${orderByClause}")); //$NON-NLS-1$
+//        answer.addElement(ifElement);
 
         if (context.getPlugins()
                 .sqlMapSelectByExampleWithoutBLOBsElementGenerated(answer,

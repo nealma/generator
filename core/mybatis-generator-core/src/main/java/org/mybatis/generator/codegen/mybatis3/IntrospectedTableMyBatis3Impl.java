@@ -266,10 +266,24 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
 
         if (xmlMapperGenerator != null) {
             Document document = xmlMapperGenerator.getDocument();
+//            GeneratedXmlFile gxf = new GeneratedXmlFile(document,
+//                getMyBatis3XmlMapperFileName(), getMyBatis3XmlMapperPackage(),
+//                context.getSqlMapGeneratorConfiguration().getTargetProject(),
+//                true, context.getXmlFormatter());
+
+            String tmp = context.getProperty("mergeable");
+            boolean mergeable = false;
+            if("true".equalsIgnoreCase(tmp)){
+                mergeable = true;
+            }
             GeneratedXmlFile gxf = new GeneratedXmlFile(document,
-                getMyBatis3XmlMapperFileName(), getMyBatis3XmlMapperPackage(),
-                context.getSqlMapGeneratorConfiguration().getTargetProject(),
-                true, context.getXmlFormatter());
+                    getMyBatis3XmlMapperFileName(), getMyBatis3XmlMapperPackage(),
+                    context.getSqlMapGeneratorConfiguration().getTargetProject(),
+                    mergeable, context.getXmlFormatter());
+            if (context.getPlugins().sqlMapGenerated(gxf, this)) {
+                answer.add(gxf);
+            }
+
             if (context.getPlugins().sqlMapGenerated(gxf, this)) {
                 answer.add(gxf);
             }

@@ -165,6 +165,7 @@ public class SelectByPrimaryKeyElementGenerator extends
                     "test", sb.toString())); //$NON-NLS-1$
 
             sb.setLength(0);
+            sb.append(" AND ");
             sb.append(introspectedColumn.getJavaProperty());
             sb.append('=');
             sb.append(MyBatis3FormattingUtilities

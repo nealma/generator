@@ -21,6 +21,7 @@ import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.TextElement;
 import org.mybatis.generator.api.dom.xml.XmlElement;
+import org.mybatis.generator.codegen.mybatis3.ListUtilities;
 import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 
 /**
@@ -109,10 +110,81 @@ public class SelectByPrimaryKeyElementGenerator extends
             answer.addElement(new TextElement(sb.toString()));
         }
 
+        //select start
+        String fqjt = introspectedTable.getBaseRecordType();
+
+        XmlElement answer1 = new XmlElement("select"); //$NON-NLS-1$
+
+        answer1.addAttribute(new Attribute("id", //$NON-NLS-1$
+                introspectedTable.getSelectByExampleStatementId()));
+        answer1.addAttribute(new Attribute(
+                "resultMap", introspectedTable.getBaseResultMapId())); //$NON-NLS-1$
+        answer1.addAttribute(new Attribute("parameterType", fqjt)); //$NON-NLS-1$
+
+        context.getCommentGenerator().addComment(answer1);
+
+        answer1.addElement(new TextElement("select")); //$NON-NLS-1$
+
+        answer1.addElement(getBaseColumnListElement());
+
+        sb.setLength(0);
+        sb.append("from "); //$NON-NLS-1$
+        sb.append(introspectedTable
+                .getAliasedFullyQualifiedTableNameAtRuntime());
+        answer1.addElement(new TextElement(sb.toString()));
+        answer1.addElement(getIncludeElement());
+// select end
+
+//        whereCause start
+        XmlElement answer2 = new XmlElement("sql"); //$NON-NLS-1$
+        answer2.addAttribute(new Attribute("id", //$NON-NLS-1$
+                "whereCause"));
+        context.getCommentGenerator().addComment(answer2);
+
+        XmlElement whereElement = new XmlElement("where"); //$NON-NLS-1$
+        for (IntrospectedColumn introspectedColumn : ListUtilities.removeIdentityAndGeneratedAlwaysColumns(introspectedTable
+                .getAllColumns())) {
+
+            if (introspectedColumn.isSequenceColumn()
+                    || introspectedColumn.getFullyQualifiedJavaType().isPrimitive()) {
+                sb.setLength(0);
+                sb.append(MyBatis3FormattingUtilities
+                        .getEscapedColumnName(introspectedColumn));
+                sb.append(',');
+                continue;
+            }
+
+            XmlElement insertNotNullElement = new XmlElement("if"); //$NON-NLS-1$
+            sb.setLength(0);
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(" != null"); //$NON-NLS-1$
+            sb.append(" and "); //$NON-NLS-1$
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(" != ''"); //$NON-NLS-1$
+            insertNotNullElement.addAttribute(new Attribute(
+                    "test", sb.toString())); //$NON-NLS-1$
+
+            sb.setLength(0);
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append('=');
+            sb.append(MyBatis3FormattingUtilities
+                    .getParameterClause(introspectedColumn));
+            insertNotNullElement.addElement(new TextElement(sb.toString()));
+
+            whereElement.addElement(insertNotNullElement);
+        }
+        answer2.addElement(whereElement);
+
+//        whereCause end
+
         if (context.getPlugins()
                 .sqlMapSelectByPrimaryKeyElementGenerated(answer,
                         introspectedTable)) {
+            parentElement.addElement(answer2);
+            parentElement.addElement(answer1);
             parentElement.addElement(answer);
+
         }
+
     }
 }

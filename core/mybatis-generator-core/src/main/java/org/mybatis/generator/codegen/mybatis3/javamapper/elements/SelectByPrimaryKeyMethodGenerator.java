@@ -26,6 +26,8 @@ import org.mybatis.generator.api.dom.java.JavaVisibility;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.Parameter;
 
+import static org.mybatis.generator.internal.util.messages.Messages.getString;
+
 /**
  * 
  * @author Jeff Butler
@@ -60,10 +62,6 @@ public class SelectByPrimaryKeyMethodGenerator extends
             importedTypes.add(type);
             method.addParameter(new Parameter(type, "key")); //$NON-NLS-1$
         } else {
-            // no primary key class - fields are in the base class
-            // if more than one PK field, then we need to annotate the
-            // parameters
-            // for MyBatis3
             List<IntrospectedColumn> introspectedColumns = introspectedTable
                     .getPrimaryKeyColumns();
             boolean annotate = introspectedColumns.size() > 1;
@@ -99,7 +97,9 @@ public class SelectByPrimaryKeyMethodGenerator extends
             interfaze.addImportedTypes(importedTypes);
             interfaze.addMethod(method);
         }
+
     }
+
 
     public void addMapperAnnotations(Interface interfaze, Method method) {
     }

@@ -67,7 +67,10 @@ public class SelectByExampleWithoutBLOBsMethodGenerator extends
         method.setReturnType(returnType);
 
         method.setName(introspectedTable.getSelectByExampleStatementId());
-        method.addParameter(new Parameter(type, "example")); //$NON-NLS-1$
+
+        StringBuilder stringBuilder = new StringBuilder(listType.getShortName());
+        stringBuilder.setCharAt(0, Character.toLowerCase(stringBuilder.charAt(0)));
+        method.addParameter(new Parameter(listType, stringBuilder.toString())); //$NON-NLS-1$
 
         context.getCommentGenerator().addGeneralMethodComment(method,
                 introspectedTable);
@@ -77,8 +80,8 @@ public class SelectByExampleWithoutBLOBsMethodGenerator extends
         if (context.getPlugins()
                 .clientSelectByExampleWithoutBLOBsMethodGenerated(method,
                         interfaze, introspectedTable)) {
-            interfaze.addImportedTypes(importedTypes);
-            interfaze.addMethod(method);
+//            interfaze.addImportedTypes(importedTypes);
+//            interfaze.addMethod(method);
         }
     }
 

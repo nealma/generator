@@ -24,6 +24,8 @@ import org.mybatis.generator.api.dom.java.JavaVisibility;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.Parameter;
 
+import static org.mybatis.generator.internal.util.messages.Messages.getString;
+
 /**
  * 
  * @author Jeff Butler
@@ -61,8 +63,42 @@ public class InsertSelectiveMethodGenerator extends
 //            interfaze.addImportedTypes(importedTypes);
 //            interfaze.addMethod(method);
 //        }
-    }
 
+        Set<FullyQualifiedJavaType> importedTypes1 = new TreeSet<FullyQualifiedJavaType>();
+        importedTypes1.add(FullyQualifiedJavaType.getNewListInstance());
+
+        Method method1 = new Method();
+        method1.setVisibility(JavaVisibility.PUBLIC);
+
+        FullyQualifiedJavaType returnType1 = FullyQualifiedJavaType
+                .getNewListInstance();
+        FullyQualifiedJavaType listType1;
+        if (introspectedTable.getRules().generateBaseRecordClass()) {
+            listType1 = new FullyQualifiedJavaType(introspectedTable
+                    .getBaseRecordType());
+        } else if (introspectedTable.getRules().generatePrimaryKeyClass()) {
+            listType1 = new FullyQualifiedJavaType(introspectedTable
+                    .getPrimaryKeyType());
+        } else {
+            throw new RuntimeException(getString("RuntimeError.12")); //$NON-NLS-1$
+        }
+
+        importedTypes1.add(listType1);
+        returnType1.addTypeArgument(listType1);
+        method1.setReturnType(returnType1);
+
+        method1.setName("select");
+
+        StringBuilder stringBuilder1 = new StringBuilder(listType1.getShortName());
+        stringBuilder1.setCharAt(0, Character.toLowerCase(stringBuilder1.charAt(0)));
+        method1.addParameter(new Parameter(listType1, stringBuilder1.toString())); //$NON-NLS-1$
+
+        if (context.getPlugins().clientInsertSelectiveMethodGenerated(
+                method1, interfaze, introspectedTable)) {
+            interfaze.addImportedTypes(importedTypes1);
+            interfaze.addMethod(method1);
+        }
+    }
     public void addMapperAnnotations(Interface interfaze, Method method) {
     }
 }

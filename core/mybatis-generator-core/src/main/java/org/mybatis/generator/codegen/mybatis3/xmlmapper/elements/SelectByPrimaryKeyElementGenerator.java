@@ -138,7 +138,7 @@ public class SelectByPrimaryKeyElementGenerator extends
 //        whereCause start
         XmlElement answer2 = new XmlElement("sql"); //$NON-NLS-1$
         answer2.addAttribute(new Attribute("id", //$NON-NLS-1$
-                "whereCause"));
+                "whereClause"));
         context.getCommentGenerator().addComment(answer2);
 
         XmlElement whereElement = new XmlElement("where"); //$NON-NLS-1$

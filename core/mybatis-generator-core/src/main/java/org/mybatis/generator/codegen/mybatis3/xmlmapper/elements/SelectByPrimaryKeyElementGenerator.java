@@ -178,11 +178,34 @@ public class SelectByPrimaryKeyElementGenerator extends
 
 //        whereCause end
 
+//        count start
+
+        XmlElement answer4 = new XmlElement("select"); //$NON-NLS-1$
+
+        String fqjt4 = introspectedTable.getBaseRecordType();
+
+        answer4.addAttribute(new Attribute(
+                "id", introspectedTable.getCountByExampleStatementId())); //$NON-NLS-1$
+        answer4.addAttribute(new Attribute("parameterType", fqjt4)); //$NON-NLS-1$
+        answer4.addAttribute(new Attribute("resultType", "java.lang.Long")); //$NON-NLS-1$ //$NON-NLS-2$
+
+        context.getCommentGenerator().addComment(answer4);
+
+        StringBuilder sb4 = new StringBuilder();
+        sb4.append("select count(1) from "); //$NON-NLS-1$
+        sb4.append(introspectedTable
+                .getAliasedFullyQualifiedTableNameAtRuntime());
+        answer4.addElement(new TextElement(sb4.toString()));
+        answer4.addElement(getIncludeElement());
+
+//        count end
+
         if (context.getPlugins()
                 .sqlMapSelectByPrimaryKeyElementGenerated(answer,
                         introspectedTable)) {
             parentElement.addElement(answer2);
             parentElement.addElement(answer1);
+            parentElement.addElement(answer4);
             parentElement.addElement(answer);
 
         }

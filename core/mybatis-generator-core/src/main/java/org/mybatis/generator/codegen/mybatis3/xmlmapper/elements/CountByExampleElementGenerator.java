@@ -32,27 +32,27 @@ public class CountByExampleElementGenerator extends AbstractXmlElementGenerator 
 
     @Override
     public void addElements(XmlElement parentElement) {
-        XmlElement answer = new XmlElement("select"); //$NON-NLS-1$
+        XmlElement answer4 = new XmlElement("select"); //$NON-NLS-1$
 
-        String fqjt = introspectedTable.getExampleType();
+        String fqjt4 = introspectedTable.getBaseRecordType();
 
-        answer.addAttribute(new Attribute(
+        answer4.addAttribute(new Attribute(
                 "id", introspectedTable.getCountByExampleStatementId())); //$NON-NLS-1$
-        answer.addAttribute(new Attribute("parameterType", fqjt)); //$NON-NLS-1$
-        answer.addAttribute(new Attribute("resultType", "java.lang.Long")); //$NON-NLS-1$ //$NON-NLS-2$
+        answer4.addAttribute(new Attribute("parameterType", fqjt4)); //$NON-NLS-1$
+        answer4.addAttribute(new Attribute("resultType", "java.lang.Long")); //$NON-NLS-1$ //$NON-NLS-2$
 
-        context.getCommentGenerator().addComment(answer);
+        context.getCommentGenerator().addComment(answer4);
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("select count(*) from "); //$NON-NLS-1$
-        sb.append(introspectedTable
+        StringBuilder sb4 = new StringBuilder();
+        sb4.append("select count(1) from "); //$NON-NLS-1$
+        sb4.append(introspectedTable
                 .getAliasedFullyQualifiedTableNameAtRuntime());
-        answer.addElement(new TextElement(sb.toString()));
-        answer.addElement(getExampleIncludeElement());
+        answer4.addElement(new TextElement(sb4.toString()));
+        answer4.addElement(getIncludeElement());
 
         if (context.getPlugins().sqlMapCountByExampleElementGenerated(
-                answer, introspectedTable)) {
-            parentElement.addElement(answer);
+                answer4, introspectedTable)) {
+            parentElement.addElement(answer4);
         }
     }
 }

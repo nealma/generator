@@ -56,8 +56,8 @@ public class CountByExampleMethodGenerator extends
         
         if (context.getPlugins().clientCountByExampleMethodGenerated(method,
                 interfaze, introspectedTable)) {
-            interfaze.addImportedTypes(importedTypes);
-            interfaze.addMethod(method);
+//            interfaze.addImportedTypes(importedTypes);
+//            interfaze.addMethod(method);
         }
     }
 

@@ -93,6 +93,39 @@ public class InsertSelectiveMethodGenerator extends
         stringBuilder1.setCharAt(0, Character.toLowerCase(stringBuilder1.charAt(0)));
         method1.addParameter(new Parameter(listType1, stringBuilder1.toString())); //$NON-NLS-1$
 
+
+//        count method start
+
+        FullyQualifiedJavaType listType;
+        if (introspectedTable.getRules().generateBaseRecordClass()) {
+            listType = new FullyQualifiedJavaType(introspectedTable
+                    .getBaseRecordType());
+        } else if (introspectedTable.getRules().generatePrimaryKeyClass()) {
+            listType = new FullyQualifiedJavaType(introspectedTable
+                    .getPrimaryKeyType());
+        } else {
+            throw new RuntimeException(getString("RuntimeError.12")); //$NON-NLS-1$
+        }
+
+        Set<FullyQualifiedJavaType> importedTypes = new TreeSet<FullyQualifiedJavaType>();
+        importedTypes.add(listType);
+
+        Method method = new Method();
+        method.setVisibility(JavaVisibility.PUBLIC);
+        method.setReturnType(new FullyQualifiedJavaType("long")); //$NON-NLS-1$
+        method.setName("count");
+
+        StringBuilder stringBuilder = new StringBuilder(listType.getShortName());
+        stringBuilder.setCharAt(0, Character.toLowerCase(stringBuilder.charAt(0)));
+        method.addParameter(new Parameter(listType, stringBuilder.toString())); //$NON-NLS-1
+
+        if (context.getPlugins().clientInsertSelectiveMethodGenerated(method,
+                interfaze, introspectedTable)) {
+//            interfaze.addImportedTypes(importedTypes);
+            interfaze.addMethod(method);
+        }
+//        count method end
+
         if (context.getPlugins().clientInsertSelectiveMethodGenerated(
                 method1, interfaze, introspectedTable)) {
             interfaze.addImportedTypes(importedTypes1);

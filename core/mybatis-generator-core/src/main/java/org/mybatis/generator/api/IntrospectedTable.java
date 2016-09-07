@@ -792,10 +792,10 @@ public abstract class IntrospectedTable {
         setSelectByPrimaryKeyStatementId("selectByPK"); //$NON-NLS-1$
         setBaseColumnListId("baseColumnList"); //$NON-NLS-1$
         setBaseResultMapId("resultMap"); //$NON-NLS-1$
-            setExampleWhereClauseId("whereClause"); //$NON-NLS-1$
+        setExampleWhereClauseId("whereClause"); //$NON-NLS-1$
         setSelectByExampleStatementId("select"); //$NON-NLS-1$
+        setCountByExampleStatementId("count"); //$NON-NLS-1$
 
-        setCountByExampleStatementId("countByExample"); //$NON-NLS-1$
         setDeleteByExampleStatementId("deleteByExample"); //$NON-NLS-1$
         setInsertSelectiveStatementId("insertSelective"); //$NON-NLS-1$
         setSelectAllStatementId("selectAll"); //$NON-NLS-1$

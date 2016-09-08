@@ -123,16 +123,16 @@ public class SelectByPrimaryKeyElementGenerator extends
 
         context.getCommentGenerator().addComment(answer1);
 
+        answer1.addElement(getIncludeElementForHeadPage());
         answer1.addElement(new TextElement("select")); //$NON-NLS-1$
-
         answer1.addElement(getBaseColumnListElement());
-
         sb.setLength(0);
         sb.append("from "); //$NON-NLS-1$
         sb.append(introspectedTable
                 .getAliasedFullyQualifiedTableNameAtRuntime());
         answer1.addElement(new TextElement(sb.toString()));
         answer1.addElement(getIncludeElement());
+        answer1.addElement(getIncludeElementForTailPage());
 // select end
 
 //        whereCause start

@@ -93,7 +93,22 @@ public abstract class AbstractXmlElementGenerator extends AbstractGenerator {
         XmlElement includeElement = new XmlElement("include"); //$NON-NLS-1$
         includeElement.addAttribute(new Attribute("refid", //$NON-NLS-1$
                 introspectedTable.getExampleWhereClauseId()));
+        return includeElement;
+    }
 
+    protected XmlElement getIncludeElementForHeadPage() {
+
+        XmlElement includeElement = new XmlElement("include"); //$NON-NLS-1$
+        includeElement.addAttribute(new Attribute("refid", //$NON-NLS-1$
+                "Common.pageHeadMySQL"));
+        return includeElement;
+    }
+
+    protected XmlElement getIncludeElementForTailPage() {
+
+        XmlElement includeElement = new XmlElement("include"); //$NON-NLS-1$
+        includeElement.addAttribute(new Attribute("refid", //$NON-NLS-1$
+                "Common.pageTailMySQL"));
         return includeElement;
     }
 

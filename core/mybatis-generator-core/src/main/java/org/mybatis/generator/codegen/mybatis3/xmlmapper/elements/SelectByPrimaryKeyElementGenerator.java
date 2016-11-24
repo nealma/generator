@@ -161,6 +161,12 @@ public class SelectByPrimaryKeyElementGenerator extends
             sb.append(" and "); //$NON-NLS-1$
             sb.append(introspectedColumn.getJavaProperty());
             sb.append(" != ''"); //$NON-NLS-1$
+
+            //判断Mybatis+0+null，主要是针对整数类型
+            sb.append(" or "); //$NON-NLS-1$
+            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(" == 0"); //$NON-NLS-1$
+            
             insertNotNullElement.addAttribute(new Attribute(
                     "test", sb.toString())); //$NON-NLS-1$
 

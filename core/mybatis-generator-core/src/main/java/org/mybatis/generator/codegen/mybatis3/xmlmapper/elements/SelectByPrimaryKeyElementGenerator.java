@@ -166,7 +166,8 @@ public class SelectByPrimaryKeyElementGenerator extends
 
             sb.setLength(0);
             sb.append(" AND ");
-            sb.append(introspectedColumn.getJavaProperty());
+            sb.append(MyBatis3FormattingUtilities
+                    .getEscapedColumnName(introspectedColumn));
             sb.append('=');
             sb.append(MyBatis3FormattingUtilities
                     .getParameterClause(introspectedColumn));

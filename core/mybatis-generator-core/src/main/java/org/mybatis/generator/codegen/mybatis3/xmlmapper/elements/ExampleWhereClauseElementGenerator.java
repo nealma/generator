@@ -115,9 +115,13 @@ public class ExampleWhereClauseElementGenerator extends
             sb.setLength(0);
             sb.append(introspectedColumn.getJavaProperty());
             sb.append(" != null"); //$NON-NLS-1$
-            sb.append(" and "); //$NON-NLS-1$
-            sb.append(introspectedColumn.getJavaProperty());
-            sb.append(" != ''"); //$NON-NLS-1$
+            //判断Mybatis+0+null，主要是针对整数类型
+            if(!introspectedColumn.getFullyQualifiedJavaType().isPrimitive()){
+                sb.append(" and "); //$NON-NLS-1$
+                sb.append(introspectedColumn.getJavaProperty());
+                sb.append(" != ''"); //$NON-NLS-1$
+            }
+
             insertNotNullElement.addAttribute(new Attribute(
                     "test", sb.toString())); //$NON-NLS-1$
 

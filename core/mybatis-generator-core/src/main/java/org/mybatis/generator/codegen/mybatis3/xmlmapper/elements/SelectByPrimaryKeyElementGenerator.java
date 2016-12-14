@@ -130,7 +130,7 @@ public class SelectByPrimaryKeyElementGenerator extends
         sb.append("from "); //$NON-NLS-1$
         sb.append(introspectedTable
                 .getAliasedFullyQualifiedTableNameAtRuntime());
-        sb.append(" order by ctime desc"); //$NON-NLS-1$
+//        sb.append(" order by ctime desc"); //$NON-NLS-1$
         answer1.addElement(new TextElement(sb.toString()));
         answer1.addElement(getIncludeElement());
         answer1.addElement(getIncludeElementForTailPage());

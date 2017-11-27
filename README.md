@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         </jdbcConnection>
 
         <!--生成的model 包路径 -->
-        <javaModelGenerator targetPackage="com.ruitaowang.core.domain" targetProject="/Users/neal/work/bitbucket.org/project-path/src/main/java">
+        <javaModelGenerator targetPackage="com.ruitaowang.core.domain" targetProject="/your-project-path/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <!-- 从数据库返回的值被清理前后的空格  -->
             <property name="trimStrings" value="true"/>

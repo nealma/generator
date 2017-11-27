@@ -29,30 +29,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SelectByPrimaryKeyElementGenerator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/SelectByPrimaryKeyElementGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="133" column="58" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdateByPrimaryKeyWithoutBLOBsElementGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/UpdateByPrimaryKeyWithoutBLOBsElementGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="84" column="44" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExampleWhereClauseElementGenerator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ExampleWhereClauseElementGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/ExampleWhereClauseElementGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1590">
+            <state relative-caret-position="120">
               <caret line="127" column="57" selection-start-line="127" selection-start-column="57" selection-end-line="127" selection-end-column="57" />
               <folding />
             </state>
@@ -74,7 +54,74 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="10770">
               <caret line="794" column="33" selection-start-line="794" selection-start-column="33" selection-end-line="794" selection-end-column="33" />
-              <folding />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#8362#8363#0" expanded="false" />
+                <element signature="e#8404#8405#0" expanded="false" />
+                <element signature="e#8566#8567#0" expanded="false" />
+                <element signature="e#8635#8636#0" expanded="false" />
+                <element signature="e#8808#8809#0" expanded="false" />
+                <element signature="e#8880#8881#0" expanded="false" />
+                <element signature="e#9012#9013#0" expanded="false" />
+                <element signature="e#9071#9072#0" expanded="false" />
+                <element signature="e#13126#13127#0" expanded="false" />
+                <element signature="e#13166#13167#0" expanded="false" />
+                <element signature="e#13308#13309#0" expanded="false" />
+                <element signature="e#13359#13360#0" expanded="false" />
+                <element signature="e#13500#13501#0" expanded="false" />
+                <element signature="e#13534#13535#0" expanded="false" />
+                <element signature="e#14640#14641#0" expanded="false" />
+                <element signature="e#14708#14709#0" expanded="false" />
+                <element signature="e#15202#15203#0" expanded="false" />
+                <element signature="e#15236#15237#0" expanded="false" />
+                <element signature="e#15365#15366#0" expanded="false" />
+                <element signature="e#15410#15411#0" expanded="false" />
+                <element signature="e#15539#15540#0" expanded="false" />
+                <element signature="e#15584#15585#0" expanded="false" />
+                <element signature="e#15686#15687#0" expanded="false" />
+                <element signature="e#15714#15715#0" expanded="false" />
+                <element signature="e#15953#15954#0" expanded="false" />
+                <element signature="e#16016#16017#0" expanded="false" />
+                <element signature="e#16150#16151#0" expanded="false" />
+                <element signature="e#16236#16237#0" expanded="false" />
+                <element signature="e#16545#16546#0" expanded="false" />
+                <element signature="e#16631#16632#0" expanded="false" />
+                <element signature="e#16769#16770#0" expanded="false" />
+                <element signature="e#16851#16852#0" expanded="false" />
+                <element signature="e#20381#20382#0" expanded="false" />
+                <element signature="e#20419#20420#0" expanded="false" />
+                <element signature="e#22216#22217#0" expanded="false" />
+                <element signature="e#22259#22260#0" expanded="false" />
+                <element signature="e#22406#22407#0" expanded="false" />
+                <element signature="e#22445#22446#0" expanded="false" />
+                <element signature="e#22648#22649#0" expanded="false" />
+                <element signature="e#22691#22692#0" expanded="false" />
+                <element signature="e#25706#25707#0" expanded="false" />
+                <element signature="e#25791#25792#0" expanded="false" />
+                <element signature="e#25962#25963#0" expanded="false" />
+                <element signature="e#26047#26048#0" expanded="false" />
+                <element signature="e#27209#27210#0" expanded="false" />
+                <element signature="e#27293#27294#0" expanded="false" />
+                <element signature="e#45673#45674#0" expanded="false" />
+                <element signature="e#45743#45744#0" expanded="false" />
+                <element signature="e#49413#49414#0" expanded="false" />
+                <element signature="e#49447#49448#0" expanded="false" />
+                <element signature="e#49603#49604#0" expanded="false" />
+                <element signature="e#49644#49645#0" expanded="false" />
+                <element signature="e#56805#56806#0" expanded="false" />
+                <element signature="e#56841#56842#0" expanded="false" />
+                <element signature="e#58555#58556#0" expanded="false" />
+                <element signature="e#58585#58586#0" expanded="false" />
+                <element signature="e#58616#58617#0" expanded="false" />
+                <element signature="e#58637#58638#0" expanded="false" />
+                <element signature="e#58680#58681#0" expanded="false" />
+                <element signature="e#58709#58710#0" expanded="false" />
+                <element signature="e#58742#58743#0" expanded="false" />
+                <element signature="e#58765#58766#0" expanded="false" />
+                <element signature="e#58812#58813#0" expanded="false" />
+                <element signature="e#58845#58846#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,7 +131,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1200#1201#0" expanded="false" />
+                <element signature="e#1223#1224#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +146,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-              <folding />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1044#1045#0" expanded="false" />
+                <element signature="e#1067#1068#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -781,12 +838,12 @@
       <workItem from="1477883293838" duration="143000" />
       <workItem from="1479968719136" duration="1767000" />
       <workItem from="1479996422400" duration="6042000" />
-      <workItem from="1481735005931" duration="1074000" />
+      <workItem from="1481735005931" duration="1727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58103000" />
+    <option name="totallyTimeSpent" value="58756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1192,7 +1249,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1200#1201#0" expanded="false" />
+            <element signature="e#1223#1224#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1200,7 +1262,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1044#1045#0" expanded="false" />
+            <element signature="e#1067#1068#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1208,14 +1275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/ExampleWhereClauseElementGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="127" column="57" selection-start-line="127" selection-start-column="57" selection-end-line="127" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1231,22 +1290,97 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10770">
           <caret line="794" column="33" selection-start-line="794" selection-start-column="33" selection-end-line="794" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#8362#8363#0" expanded="false" />
+            <element signature="e#8404#8405#0" expanded="false" />
+            <element signature="e#8566#8567#0" expanded="false" />
+            <element signature="e#8635#8636#0" expanded="false" />
+            <element signature="e#8808#8809#0" expanded="false" />
+            <element signature="e#8880#8881#0" expanded="false" />
+            <element signature="e#9012#9013#0" expanded="false" />
+            <element signature="e#9071#9072#0" expanded="false" />
+            <element signature="e#13126#13127#0" expanded="false" />
+            <element signature="e#13166#13167#0" expanded="false" />
+            <element signature="e#13308#13309#0" expanded="false" />
+            <element signature="e#13359#13360#0" expanded="false" />
+            <element signature="e#13500#13501#0" expanded="false" />
+            <element signature="e#13534#13535#0" expanded="false" />
+            <element signature="e#14640#14641#0" expanded="false" />
+            <element signature="e#14708#14709#0" expanded="false" />
+            <element signature="e#15202#15203#0" expanded="false" />
+            <element signature="e#15236#15237#0" expanded="false" />
+            <element signature="e#15365#15366#0" expanded="false" />
+            <element signature="e#15410#15411#0" expanded="false" />
+            <element signature="e#15539#15540#0" expanded="false" />
+            <element signature="e#15584#15585#0" expanded="false" />
+            <element signature="e#15686#15687#0" expanded="false" />
+            <element signature="e#15714#15715#0" expanded="false" />
+            <element signature="e#15953#15954#0" expanded="false" />
+            <element signature="e#16016#16017#0" expanded="false" />
+            <element signature="e#16150#16151#0" expanded="false" />
+            <element signature="e#16236#16237#0" expanded="false" />
+            <element signature="e#16545#16546#0" expanded="false" />
+            <element signature="e#16631#16632#0" expanded="false" />
+            <element signature="e#16769#16770#0" expanded="false" />
+            <element signature="e#16851#16852#0" expanded="false" />
+            <element signature="e#20381#20382#0" expanded="false" />
+            <element signature="e#20419#20420#0" expanded="false" />
+            <element signature="e#22216#22217#0" expanded="false" />
+            <element signature="e#22259#22260#0" expanded="false" />
+            <element signature="e#22406#22407#0" expanded="false" />
+            <element signature="e#22445#22446#0" expanded="false" />
+            <element signature="e#22648#22649#0" expanded="false" />
+            <element signature="e#22691#22692#0" expanded="false" />
+            <element signature="e#25706#25707#0" expanded="false" />
+            <element signature="e#25791#25792#0" expanded="false" />
+            <element signature="e#25962#25963#0" expanded="false" />
+            <element signature="e#26047#26048#0" expanded="false" />
+            <element signature="e#27209#27210#0" expanded="false" />
+            <element signature="e#27293#27294#0" expanded="false" />
+            <element signature="e#45673#45674#0" expanded="false" />
+            <element signature="e#45743#45744#0" expanded="false" />
+            <element signature="e#49413#49414#0" expanded="false" />
+            <element signature="e#49447#49448#0" expanded="false" />
+            <element signature="e#49603#49604#0" expanded="false" />
+            <element signature="e#49644#49645#0" expanded="false" />
+            <element signature="e#56805#56806#0" expanded="false" />
+            <element signature="e#56841#56842#0" expanded="false" />
+            <element signature="e#58555#58556#0" expanded="false" />
+            <element signature="e#58585#58586#0" expanded="false" />
+            <element signature="e#58616#58617#0" expanded="false" />
+            <element signature="e#58637#58638#0" expanded="false" />
+            <element signature="e#58680#58681#0" expanded="false" />
+            <element signature="e#58709#58710#0" expanded="false" />
+            <element signature="e#58742#58743#0" expanded="false" />
+            <element signature="e#58765#58766#0" expanded="false" />
+            <element signature="e#58812#58813#0" expanded="false" />
+            <element signature="e#58845#58846#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/SelectByPrimaryKeyElementGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="134" column="48" selection-start-line="134" selection-start-column="48" selection-end-line="134" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/UpdateByPrimaryKeyWithoutBLOBsElementGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
+        <state relative-caret-position="150">
           <caret line="84" column="44" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/SelectByPrimaryKeyElementGenerator.java">
+    <entry file="file://$PROJECT_DIR$/mybatis-generator-core/src/main/java/org/mybatis/generator/codegen/mybatis3/xmlmapper/elements/ExampleWhereClauseElementGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="133" column="58" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
+        <state relative-caret-position="120">
+          <caret line="127" column="57" selection-start-line="127" selection-start-column="57" selection-end-line="127" selection-end-column="57" />
           <folding />
         </state>
       </provider>
